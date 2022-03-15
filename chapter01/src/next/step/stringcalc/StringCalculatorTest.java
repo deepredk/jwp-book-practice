@@ -13,10 +13,16 @@ public class StringCalculatorTest {
         strCalculator = new StringCalculator();
     }
 
+
     @Test
     public void 기본_구분자_계산_테스트() {
         assertEquals(8, strCalculator.calculate("1,3,4"));
         assertEquals(8, strCalculator.calculate("1:3:4"));
+    }
+
+    @Test
+    public void 숫자_하나_계산_테스트() {
+        assertEquals(1, strCalculator.calculate("1"));
     }
 
     @Test
