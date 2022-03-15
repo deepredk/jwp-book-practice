@@ -1,26 +1,11 @@
 package next.step.calculator;
 
+import org.junit.Test;
+
 public class CalculatorTest {
-    public static void main(String[] args) {
+    @Test
+    public void add() {
         Calculator cal = new Calculator();
-        add(cal);
-        subtract(cal);
-    }
-
-    private static void add(Calculator cal) {
-        System.out.println(cal.add(9, 3));
-
-    }
-
-    private static void subtract(Calculator cal) {
-        System.out.println(cal.subtract(9, 3));
-    }
-
-    private static void multiply(Calculator cal) {
-        System.out.println(cal.multiply(9, 3));
-    }
-
-    private static void divide(Calculator cal) {
-        System.out.println(cal.divide(9, 3));
+        System.out.println(cal.add(6, 3));
     }
 }
