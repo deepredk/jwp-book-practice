@@ -4,7 +4,7 @@ public class StringCalculator {
     private final String DEFAULT_DELIMETERS = ",|:";
 
     public int calculate(String formula) throws RuntimeException{
-        if (formula == null || formula.trim().isEmpty()) {
+        if (isEmptyFormula(formula)) {
             return 0;
         }
 
@@ -25,14 +25,18 @@ public class StringCalculator {
 
         for (String numberInStr : numbersInStr) {
             int number = Integer.valueOf(numberInStr);
-            if (number < 0) {
-                throw new RuntimeException("계산식에 음수는 포함될 수 없습니다");
-            }
+            throwExceptionIfNegative(number);
 
             sum += number;
         }
 
         return sum;
+    }
+
+    private void throwExceptionIfNegative(int number) {
+        if (number < 0) {
+            throw new RuntimeException("계산식에 음수는 포함될 수 없습니다");
+        }
     }
 
     private String extractFormula(String formulaWithCustomDelimeter) {
@@ -45,5 +49,9 @@ public class StringCalculator {
 
     private boolean hasCustomDelimeter(String formula) {
         return formula.contains("\n");
+    }
+
+    private boolean isEmptyFormula(String formula) {
+        return formula == null || formula.trim().isEmpty();
     }
 }
