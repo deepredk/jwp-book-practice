@@ -4,6 +4,10 @@ public class StringCalculator {
     private final String DEFAULT_DELIMETERS = ",|:";
 
     public int calculate(String formula) throws RuntimeException{
+        if (formula == null || formula.trim().isEmpty()) {
+            return 0;
+        }
+
         String delimiters = DEFAULT_DELIMETERS;
         if (hasCustomDelimeter(formula)) {
             delimiters = extractCustomDelimeter(formula);

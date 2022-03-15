@@ -28,4 +28,11 @@ public class StringCalculatorTest {
     public void 음수_예외발생_테스트() {
         assertThrows(RuntimeException.class, () -> strCalculator.calculate("-11:3:4"));
     }
+
+    @Test
+    public void 비었거나_null이라면_0_반환_테스트() {
+        assertEquals(0, strCalculator.calculate(""));
+        assertEquals(0, strCalculator.calculate("  "));
+        assertEquals(0, strCalculator.calculate(null));
+    }
 }
