@@ -1,1 +1,1 @@
-# jwp-book
+# jwp-book-practice
